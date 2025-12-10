@@ -27,5 +27,14 @@ body {
     align-items: center;
     min-height: 100vh;
     color: var(--color-text);
+    padding: 15px;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    background: var(--color-card);
+    padding: 32px;
+    border-radius: 23px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 900px;
 }
