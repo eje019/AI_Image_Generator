@@ -146,4 +146,9 @@ body {
     width: 35px;
     background: var(--color-gradient);
     color: #fff;
+    border: none;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    opacity: 0.8;
+    background: var(--color-gradient);
 }
