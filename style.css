@@ -77,3 +77,20 @@ body {
     background: var(--color-gradient);
 }
 
+.header .logo-wrapper .logo img {
+    width: 30px;
+    height: 30px;
+}
+
+
+.header .theme-toggle {
+    background: var(--color-input);
+    width: 45px;
+    height: 25px;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--color-border);
+}
