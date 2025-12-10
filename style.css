@@ -58,8 +58,21 @@ body {
 
 }
 
-.header logo-wrapper {
+.header .logo-wrapper {
     display: flex;
     align-items: center;
     gap: 18px;
 }
+
+.header .logo-wrapper .logo {
+    width: 55px;
+    height: 56px;
+    display: flex;
+    color: #fff;
+    font-size: 1.35rem;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-gradient);
+}
+
