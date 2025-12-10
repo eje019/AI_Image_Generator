@@ -151,4 +151,13 @@ body {
     border-radius: 50%;
     opacity: 0.8;
     background: var(--color-gradient);
+    transition: all 0.3s ease;
+}
+
+.prompt-container .prompt-btn:hover {
+    opacity: 1;
+    box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+    transform: translateY(-2px);
+    cursor: pointer;
+
 }
