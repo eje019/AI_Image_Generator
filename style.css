@@ -103,3 +103,30 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
+.main-content {
+    margin: 35px 0px 5px;
+}
+
+.main-content .prompt-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.prompt-container .prompt-input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid var(--color-border);
+    background: var(--color-input);
+    font-size: 1rem;
+    color: var(--color-text);
+    outline: none;
+    transition: all 0.3s ease;
+    resize: veertical;
+}
+
+.prompt-container .prompt-input::placeholder {
+    color: var(--color-placeholder);
+    font-size: 1rem;
+}
