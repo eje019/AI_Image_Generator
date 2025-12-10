@@ -130,3 +130,9 @@ body {
     color: var(--color-placeholder);
     font-size: 1rem;
 }
+
+.prompt-container .prompt-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+}
