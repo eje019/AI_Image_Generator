@@ -110,6 +110,7 @@ body {
 
 .main-content .prompt-container {
     width: 100%;
+    position: relative;
     margin-bottom: 20px;
 }
 
@@ -135,4 +136,14 @@ body {
     outline: none;
     border-color: var(--color-accent);
     box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+}
+
+.prompt-container .prompt-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    height: 35px;
+    width: 35px;
+    background: var(--color-gradient);
+    color: #fff;
 }
