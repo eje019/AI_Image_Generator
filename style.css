@@ -77,30 +77,24 @@ body {
     background: var(--color-gradient);
 }
 
-.header .logo-wrapper .logo img {
-    width: 30px;
-    height: 30px;
-}
-
-
 .header .logo-wrapper .h1 {
     font-size: 1.9rem;
     font-weight: 700;
 }
 
-
 .header .theme-toggle {
-    background: var(--color-input);
-    width: 43px;
     height: 43px;
+    width: 43px;
     border-radius: 50%;
+    font-size: 1.05rem;
     cursor: pointer;
-    color: var(--color-placeholder);
     display: flex;
+    flex-shrink: 0;
+    color: var(--color-placeholder);
     align-items: center;
     justify-content: center;
+    background: var(--color-input);
     border: 1px solid var(--color-border);
-    font-size: 1.05rem;
     transition: all 0.3s ease;
 }
 
