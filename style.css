@@ -552,3 +552,7 @@ background: linear-gradient(transparent, rgba(0, 0, 0));
     backdrop-filter: 5px;
     border-radius: 50%;
 }
+
+.gallery-grid .img-card .img-download-btn:hover {
+    
+}
