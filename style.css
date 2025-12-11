@@ -523,6 +523,13 @@ grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     border-radius: 16px;   
     background: var(--color-input);
     border: 1px solid var(--color-border);
+    transition: all 0.5s ease;
+}
+
+
+.gallery-grid .img-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0), 0.1;
 }
 
 .gallery-grid .img-card .result-img {
@@ -539,14 +546,22 @@ right: 0;
 padding: 20px;
 display: flex;
 justify-content: flex-end;
-background: linear-gradient(transparent, rgba(0, 0, 0));
+background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+opacity: 0;
+pointer-events: none;
+transition: all 0.3s ease;
+}
+
+.gallery-grid .img-card .img-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .gallery-grid .img-card .img-download-btn {
     height: 45px;
     width: 45px;
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: 5px;
     background: rgba(255, 255, 255, 0.25);
     border: none;
     cursor: pointer;
