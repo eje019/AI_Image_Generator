@@ -1,27 +1,28 @@
 /*Import du font Inter */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Import Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
 :root {
-  --color-primary: #5C56E1;
-  --color-primary-dark: #5b21b6;
-  --color-accent: #8B5CF6;
-  --color-card: #FFFFFF;
-  --color-input: #F1F1FF;
-  --color-text: #09090E;
-  --color-placeholder: #5C5A87;
-  --color-border: #D4D4ED;
-  --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
+    --color-primary: #5C56E1;
+    --color-primary-dark: #5b21b6;
+    --color-accent: #8B5CF6;
+    --color-card: #FFFFFF;
+    --color-input: #F1F1FF;
+    --color-text: #09090E;
+    --color-placeholder: #5C5A87;
+    --color-border: #D4D4ED;
+    --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
 }
 
 body {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +38,8 @@ body {
     border-radius: 23px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     position: relative;
 }
 
@@ -51,11 +53,12 @@ body {
     background: var(--color-gradient);
 }
 
+/* HEADER */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    margin-bottom: 25px;
 }
 
 .header .logo-wrapper {
@@ -77,9 +80,10 @@ body {
     background: var(--color-gradient);
 }
 
-.header .logo-wrapper .h1 {
+.header .logo-wrapper h1 {
     font-size: 1.9rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .header .theme-toggle {
@@ -104,32 +108,35 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* MAIN CONTENT */
 .main-content {
-    margin: 35px 0px 5px;
+    margin: 20px 0px 5px;
 }
 
+/* PROMPT CONTAINER */
 .main-content .prompt-container {
     width: 100%;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .prompt-container .prompt-input {
     width: 100%;
-    padding: 15px 20px;
+    padding: 16px 65px 16px 20px;
     border-radius: 15px;
     border: 1px solid var(--color-border);
     background: var(--color-input);
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text);
     outline: none;
     transition: all 0.3s ease;
-    resize: veertical;
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.5;
 }
 
 .prompt-container .prompt-input::placeholder {
     color: var(--color-placeholder);
-    font-size: 1rem;
 }
 
 .prompt-container .prompt-input:focus {
@@ -142,28 +149,361 @@ body {
     position: absolute;
     right: 15px;
     bottom: 15px;
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     background: var(--color-gradient);
     color: #fff;
     border: none;
-    font-size: 0.75rem;
-    border-radius: 50%;
-    opacity: 0.8;
-    background: var(--color-gradient);
+    font-size: 1rem;
+    border-radius: 10px;
+    opacity: 0.9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .prompt-container .prompt-btn:hover {
     opacity: 1;
-    box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+    box-shadow: 0 4px 8px rgba(92, 86, 225, 0.3);
     transform: translateY(-2px);
-    cursor: pointer;
-
 }
 
+/* PROMPT ACTION - GRID DES SELECTEURS */
 .main-content .prompt-action {
     display: grid;
     gap: 15px;
-    grid-template-columns: 1.2fr 1fr 1.1fr 1fr;
+    grid-template-columns: 1.8fr 1.1fr 1.3fr 1.1fr; /* Ajusté pour plus d'espace */
+}
+
+/* STYLE DES SELECTEURS */
+.prompt-action .select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Flèche déroulante */
+.prompt-action .select-wrapper::after {
+    content: '\f078';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--color-placeholder);
+    pointer-events: none;
+    z-index: 2;
+    font-size: 0.85rem;
+}
+
+.prompt-action :where(.custom-select, .generate-btn) {
+    border-radius: 10px;
+    font-size: 0.9rem; /* Réduit pour plus d'espace */
+    cursor: pointer;
+    padding: 13px 16px;
+    border: 1px solid var(--color-border);
+    background: var(--color-input);
+    outline: none;
+    transition: all 0.3s ease;
+    height: 100%;
+    width: 100%;
+    min-height: 52px;
+}
+
+.prompt-action .custom-select {
+    appearance: none;
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-input);
+    padding-right: 35px; /* Espace pour la flèche */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+/* Texte plus petit pour les options par défaut */
+.prompt-action .custom-select option[value=""][selected][disabled] {
+    font-size: 0.9rem;
+    color: var(--color-placeholder);
+}
+
+.prompt-action .custom-select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+}
+
+.prompt-action .custom-select option {
+    color: var(--color-text);
+    background: var(--color-card);
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+/* BOUTON GÉNÉRATEUR */
+.prompt-action .generate-btn {
+    background: var(--color-gradient);
+    color: white;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem; /* Réduit pour équilibre */
+    padding: 13px 12px; /* Padding réduit */
+}
+
+.prompt-action .generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(92, 86, 225, 0.3);
+}
+
+.prompt-action .generate-btn i {
+    font-size: 1rem;
+}
+
+/* Masquer la flèche par défaut */
+.custom-select::-ms-expand {
+    display: none;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Desktop large */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+        padding: 40px;
+    }
+    
+    .main-content .prompt-action {
+        grid-template-columns: 2fr 1.2fr 1.4fr 1.2fr;
+        gap: 18px;
+    }
+    
+    .prompt-action :where(.custom-select, .generate-btn) {
+        font-size: 0.95rem;
+        padding: 14px 18px;
+    }
+}
+
+/* Desktop standard */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .main-content .prompt-action {
+        grid-template-columns: 1.7fr 1.1fr 1.3fr 1.1fr;
+    }
+    
+    .prompt-action :where(.custom-select, .generate-btn) {
+        font-size: 0.88rem;
+        padding: 12px 14px;
+    }
+}
+
+/* Tablettes */
+@media (max-width: 991px) {
+    .container {
+        width: 95%;
+        padding: 28px;
+    }
+    
+    .main-content .prompt-action {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .prompt-action .generate-btn {
+        grid-column: span 2;
+    }
+    
+    .header .logo-wrapper h1 {
+        font-size: 1.6rem;
+    }
+    
+    .prompt-container .prompt-input {
+        min-height: 120px;
+        padding: 16px 60px 16px 16px;
+    }
+    
+    .prompt-container .prompt-btn {
+        height: 38px;
+        width: 38px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablettes petites et grands mobiles */
+@media (max-width: 768px) {
+    .container {
+        padding: 24px;
+    }
+    
+    .header {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .header .theme-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    
+    .header .logo-wrapper h1 {
+        font-size: 1.5rem;
+    }
+    
+    .prompt-action :where(.custom-select, .generate-btn) {
+        font-size: 0.85rem;
+        padding: 12px 14px;
+        min-height: 48px;
+    }
+    
+    .prompt-container .prompt-input {
+        min-height: 110px;
+        font-size: 0.9rem;
+    }
+    
+    .generate-btn i {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 576px) {
+    body {
+        padding: 12px;
+    }
+    
+    .container {
+        padding: 20px;
+        border-radius: 18px;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .header .logo-wrapper {
+        width: 100%;
+    }
+    
+    .header .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .header .logo-wrapper h1 {
+        font-size: 1.4rem;
+    }
+    
+    .main-content .prompt-action {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .prompt-action .generate-btn {
+        grid-column: span 1;
+    }
+    
+    .prompt-container {
+        margin-bottom: 20px;
+    }
+    
+    .prompt-container .prompt-input {
+        min-height: 100px;
+        padding: 14px 55px 14px 14px;
+        font-size: 0.88rem;
+    }
+    
+    .prompt-container .prompt-btn {
+        height: 36px;
+        width: 36px;
+        font-size: 0.9rem;
+        right: 12px;
+        bottom: 12px;
+    }
+    
+    .prompt-action :where(.custom-select, .generate-btn) {
+        padding: 11px 12px;
+        min-height: 46px;
+        font-size: 0.84rem;
+    }
+    
+    .prompt-action .select-wrapper::after {
+        right: 14px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 380px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .header .logo-wrapper h1 {
+        font-size: 1.2rem;
+    }
+    
+    .prompt-container .prompt-input {
+        font-size: 0.85rem;
+        min-height: 90px;
+    }
+    
+    .prompt-action :where(.custom-select, .generate-btn) {
+        font-size: 0.82rem;
+        padding: 10px;
+    }
+}
+
+/* Optimisation pour garantir l'affichage complet du texte */
+.custom-select {
+    position: relative;
+}
+
+/* Tooltip pour voir le texte complet au survol */
+.custom-select:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-text);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-select:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--color-text);
+    margin-bottom: -4px;
+    z-index: 1001;
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+    }
 }
