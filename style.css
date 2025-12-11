@@ -554,5 +554,5 @@ background: linear-gradient(transparent, rgba(0, 0, 0));
 }
 
 .gallery-grid .img-card .img-download-btn:hover {
-    
+    transform: scale(1.05);
 }
