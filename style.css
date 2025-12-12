@@ -22,6 +22,21 @@
     --color-gradient: linear-gradient(135deg, #5C56E1, #8B5CF6);
 }
 
+body.dark-mode {
+    --color-primary: #8B5CF6;
+    --color-primary-dark: #5C56E1;
+    --color-accent: #5C56E1;
+    --color-card: #1E1E2F;
+    --color-input: #2A2A3D;
+    --color-text: #E4E4F1;
+    --color-placeholder: #A3A0C7;
+    --color-border: #3F3F55;
+    --color-gradient: linear-gradient(135deg, #8B5CF6, #5C56E1);
+
+    background: var(--color-card);
+    background-image: radial-gradient(circle at top left, #2A2A3D, #1E1E2F);
+}
+
 body {
     display: flex;
     justify-content: center;
