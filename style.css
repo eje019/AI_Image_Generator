@@ -593,8 +593,8 @@ transition: all 0.3s ease;
     height: 100%;
 }
 
-.gallery-grid .img-card.loading .spinner, .gallery-grid .img-card.error .status-container i {
-    display: block;
+.gallery-grid .img-card.loading .status-container i, .gallery-grid .img-card.error .spinner {
+    display: none;
 }
 
 .gallery-grid .img-card.error .status-container i{
@@ -609,7 +609,7 @@ transition: all 0.3s ease;
     border-radius: 50%;
     border: 3px solid var(--color-border);
     border-top-color: var(--color-primary);
-    animation: spin 1s linear infinite;
+    /* animation: spin 1s linear infinite; */
 }
 
 @keyframes spin {
