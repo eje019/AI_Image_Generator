@@ -1,4 +1,8 @@
 const themeToggle = document.querySelector('.theme-toggle');
+const promptBtn = document.querySelector('.prompt-btn');
+
+
+
 
 //appliquer le thème au chargement de la page en fonction de la preference ou dus systeme
 (() => {
