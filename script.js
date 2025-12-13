@@ -51,6 +51,7 @@ const toggleTheme = () => {
     themeToggle.querySelector('i').className = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 }
 
+//ajouter un prompt aléatoire dans le champ de saisie et le focusser
 promptBtn.addEventListener('click', () => {
     const promptInput = document.getElementById('prompt-input');
     const prompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
