@@ -58,6 +58,10 @@ body {
     position: relative;
 }
 
+body.dark-mode .container {
+    border: 1px solid var(--color-border);
+}
+
 .container::before {
     content: '';
     position: absolute;
