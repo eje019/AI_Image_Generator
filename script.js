@@ -1,5 +1,7 @@
 const themeToggle = document.querySelector('.theme-toggle');
+const promptInput = document.querySelector('.prompt-input');
 const promptBtn = document.querySelector('.prompt-btn');
+
 
 const examplePrompts = [
 " Une forêt magique aux plantes lumineuses et aux maisons de fées parmi des champignons géants ",
@@ -53,6 +55,7 @@ promptBtn.addEventListener('click', () => {
     const promptInput = document.getElementById('prompt-input');
     const prompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
     promptInput.value = prompt;
+    promptInput.focus();
 });
 
 themeToggle.addEventListener('click', toggleTheme);
