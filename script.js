@@ -47,6 +47,12 @@ const handleFormSubmit = (e) => {
     const selectedModel = document.querySelector('input[name="model"]:checked').value;
     const imageCount = parseInt(countSelect.value) || 1;
     const aspectRatio = ratioSelect.value || '512x512';
+    const promptText = promptInput.value.trim();
+
+    console.log("Modèle sélectionné :", selectedModel);
+    console.log("Nombre d'images :", imageCount);
+    console.log("Ratio d'aspect :", aspectRatio);
+    console.log("Prompt :", promptText);
 }
 // Ajouter un prompt aléatoire
 promptBtn.addEventListener('click', (e) => {
