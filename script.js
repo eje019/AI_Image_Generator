@@ -1,6 +1,11 @@
 const themeToggle = document.querySelector('.theme-toggle');
 const promptInput = document.querySelector('.prompt-input');
 const promptBtn = document.querySelector('.prompt-btn');
+const promptForm = document.querySelector('.prompt-form');
+const modelSelect = document.getElementById('model-select');
+const countSelect = document.getElementById('count-select');
+const ratioSelect = document.getElementById('ratio-select');
+
 
 const examplePrompts = [
     " Une forêt magique aux plantes lumineuses et aux maisons de fées parmi des champignons géants ",
@@ -37,6 +42,12 @@ const toggleTheme = () => {
     themeToggle.querySelector('i').className = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 }
 
+const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const selectedModel = document.querySelector('input[name="model"]:checked').value;
+    const imageCount = parseInt(countSelect.value) || 1;
+    const aspectRatio = ratioSelect.value || '512x512';
+}
 // Ajouter un prompt aléatoire
 promptBtn.addEventListener('click', (e) => {
     e.preventDefault(); // ← CECI EST LA LIGNE IMPORTANTE
@@ -45,4 +56,5 @@ promptBtn.addEventListener('click', (e) => {
     promptInput.focus();
 });
 
+promptForm.addEventListener('submit', handleFormSubmit);
 themeToggle.addEventListener('click', toggleTheme);
