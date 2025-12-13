@@ -5,6 +5,7 @@ const promptForm = document.querySelector('.prompt-form');
 const modelSelect = document.getElementById('model-select');
 const countSelect = document.getElementById('count-select');
 const ratioSelect = document.getElementById('ratio-select');
+const gridGallery = document.querySelector('.grid-gallery');
 
 
 const examplePrompts = [
@@ -42,17 +43,31 @@ const toggleTheme = () => {
     themeToggle.querySelector('i').className = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 }
 
+const createImageCards = (selectedModel, imageCount, aspectRatio, promptText) => {
+    for (let i = 0; i < imageCount; i++) {
+        gridGallery.innerHTML += `
+                    <div class="img-card loading" id="img-card-${Date.now() + i}" style="aspect-ratio: ${aspectRatio.replace('x', '/')}">
+                        <div class="status-container">
+                            <div class="spinner"></div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="status-text">Erreur lors de la génération de l'image.</p>
+                            <p>En cours...</p>
+                        </div>
+                        <img src="test.png" alt="" class="result-img">
+                    </div>`;
+}
+}
+
 const handleFormSubmit = (e) => {
     e.preventDefault();
+
     const selectedModel = document.querySelector('input[name="model"]:checked').value;
     const imageCount = parseInt(countSelect.value) || 1;
     const aspectRatio = ratioSelect.value || '512x512';
     const promptText = promptInput.value.trim();
 
-    console.log("Modèle sélectionné :", selectedModel);
-    console.log("Nombre d'images :", imageCount);
-    console.log("Ratio d'aspect :", aspectRatio);
-    console.log("Prompt :", promptText);
+    // code pour envoyer les données au backend ou à l'API
+    createImageCards(selectedModel, imageCount, aspectRatio, promptText);
 }
 // Ajouter un prompt aléatoire
 promptBtn.addEventListener('click', (e) => {
