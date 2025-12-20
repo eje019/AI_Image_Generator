@@ -526,12 +526,13 @@ body.dark-mode .container {
         transition-duration: 0.01ms !important;
     }
 }
-
+.main-content .gallery-grid:has(.img-card){
+margin-top: 30px; 
+}
 
 .main-content .gallery-grid{
 display: grid;
 gap: 15px;
-margin-top: 30px;
 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
