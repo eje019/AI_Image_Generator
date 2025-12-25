@@ -57,42 +57,25 @@ const createImageCards = (
 ) => {
   gridGallery.innerHTML = "";
 
-  // Calculer le ratio pour le CSS
-  const [width, height] = aspectRatio.split('x');
-  const ratioValue = width / height;
-  
   for (let i = 0; i < imageCount; i++) {
-    const card = document.createElement('div');
-    card.className = 'img-card loading';
-    card.id = `img-card-${Date.now() + i}`;
-    
-    // Appliquer le style inline POUR SURCHARGER le CSS
-    card.style.aspectRatio = `${width} / ${height}`;
-    card.style.width = '100%'; // S'assurer qu'il prend toute la largeur disponible
-    
-    card.innerHTML = `
-      <div class="status-container">
-        <div class="spinner"></div>
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <p class="status-text">Taille: ${aspectRatio}</p>
-        <p>En cours...</p>
-      </div>
-      <img src="test.png" alt="" class="result-img">
-      <div class="img-overlay">
-        <button class="img-download-btn">
-          <i class="fa-solid fa-download"></i>
-        </button>
-      </div>`;
-    
-    gridGallery.appendChild(card);
+    gridGallery.innerHTML += `
+                    <div class="img-card loading" id="img-card-${
+                      Date.now() + i
+                    }" style="aspect-ratio: ${aspectRatio.replace("x", "/")}">
+                        <div class="status-container">
+                            <div class="spinner"></div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="status-text">Erreur lors de la génération de l'image.</p>
+                            <p>En cours...</p>
+                        </div>
+                        <img src="test.png" alt="" class="result-img">
+                    </div>`;
   }
-  
-  // Forcer un redimensionnement pour s'assurer que le CSS est appliqué
-  setTimeout(() => {
-    gridGallery.style.display = 'none';
-    gridGallery.offsetHeight; // Trigger reflow
-    gridGallery.style.display = 'grid';
-  }, 10);
+
+  generateImages(selectedModel,
+  imageCount,
+  aspectRatio,
+  promptText);
 };
 
 const handleFormSubmit = (e) => {
@@ -102,37 +85,6 @@ const handleFormSubmit = (e) => {
   const imageCount = parseInt(countSelect.value) || 1;
   const aspectRatio = ratioSelect.value || "512x512";
   const promptText = promptInput.value.trim();
-
-  // Validation
-  if (!selectedModel) {
-    alert("Veuillez sélectionner un modèle.");
-    modelSelect.focus();
-    return;
-  }
-  
-  if (!countSelect.value) {
-    alert("Veuillez sélectionner le nombre d'images.");
-    countSelect.focus();
-    return;
-  }
-  
-  if (!aspectRatio) {
-    alert("Veuillez sélectionner une taille.");
-    ratioSelect.focus();
-    return;
-  }
-
-  if (!promptText) {
-    alert("Veuillez saisir une description pour générer l'image.");
-    promptInput.focus();
-    return;
-  }
-
-  console.log("Génération avec:", {
-    modèle: selectedModel,
-    images: imageCount,
-    taille: aspectRatio
-  });
 
   // code pour envoyer les données au backend ou à l'API
   createImageCards(selectedModel, imageCount, aspectRatio, promptText);
